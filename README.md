@@ -42,6 +42,32 @@ sqlalchemy.exc.NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:sqlite3
 )
 ```
 
+### Creating SQLAlchemy Models
+- In the top level directory, create a `models.py` file.
+
+- In the `models.py` file, create the `Base` class that our models will inherit from:
+
+## Older Declarative Syntax ([SQLAlchemy versions < 2.0](https://docs.sqlalchemy.org/en/13/orm/extensions/declarative/api.html#sqlalchemy.ext.declarative.declarative_base))
+```python
+# models.py
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base() # 
+
+class User(Base):
+    # ...
+```
+## Newer Declarative Syntax ([SQLAlchemy versions > 2.0](https://docs.sqlalchemy.org/en/20/orm/mapping_styles.html#declarative-mapping))
+
+```python
+from sqlalchemy.orm import DeclarativeBase
+class Base(DeclarativeBase):
+    pass
+
+class User(Base):
+    # ...
+```
+
 
 ## Resources 
 
